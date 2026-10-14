@@ -11,12 +11,12 @@ else()
     add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-file(GLOB FUENTES CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/*/*.cpp)
+file(GLOB SOURCES CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/*/*.cpp)
 
-foreach(src ${FUENTES})
-    get_filename_component(nombre ${src} NAME_WE)       
-    get_filename_component(carpeta ${src} DIRECTORY)
-    get_filename_component(tema ${carpeta} NAME)        
+foreach(src ${SOURCES})
+    get_filename_component(name ${src} NAME_WE)
+    get_filename_component(folder ${src} DIRECTORY)
+    get_filename_component(topic ${folder} NAME)
 
-    add_executable(${tema}_${nombre} ${src})
+    add_executable(${topic}_${name} ${src})
 endforeach()
